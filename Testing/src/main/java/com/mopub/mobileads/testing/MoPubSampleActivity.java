@@ -22,6 +22,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 
+import com.flurry.android.FlurryAgent;
 import com.google.android.material.navigation.NavigationView;
 import com.mopub.common.MoPub;
 import com.mopub.common.SdkConfiguration;
@@ -122,6 +123,8 @@ public class MoPubSampleActivity extends AppCompatActivity
         } else {
             mShowingConsentDialog = savedInstanceState.getBoolean(SHOWING_CONSENT_DIALOG_KEY);
         }
+
+        new FlurryAgent.Builder().build(this.getApplicationContext(), "WRKZW8K465CHST6YQKZV"); // flurryTestApp
 
         final SdkConfiguration.Builder configBuilder = new SdkConfiguration.Builder(
                 "b195f8dd8ded45fe847ad89ed1d016da");
