@@ -13,6 +13,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.mopub.nativeads.FlurryNativeAdRenderer;
+import com.mopub.nativeads.FlurryViewBinder;
 import com.mopub.nativeads.MediaViewBinder;
 import com.mopub.nativeads.MoPubAdAdapter;
 import com.mopub.nativeads.MoPubStaticNativeAdRenderer;
@@ -105,6 +107,23 @@ public class NativeListViewFragment extends Fragment {
                         .privacyInformationIconImageId(R.id.native_privacy_information_icon_image)
                         .build());
 
+        // Set up your regular ViewBinder
+        ViewBinder binder = new ViewBinder.Builder(R.layout.native_ad_list_item)
+            .titleId(R.id.native_title)
+            .textId(R.id.native_text)
+            .mainImageId(R.id.native_main_image)
+            .iconImageId(R.id.native_icon_image)
+            .callToActionId(R.id.native_cta)
+            .privacyInformationIconImageId(R.id.native_privacy_information_icon_image)
+            .build();
+
+        // Configure FlurryViewBinder with your video view
+        FlurryViewBinder flurryBinder = new FlurryViewBinder.Builder(binder).videoViewId(R.id.native_media_layout).build();
+
+        // Register the FlurryNativeAdRenderer to handle both Flurry video and static native ads
+        final FlurryNativeAdRenderer flurryRenderer = new FlurryNativeAdRenderer(flurryBinder);
+
+        mAdAdapter.registerAdRenderer(flurryRenderer);
 
         // Register the renderers with the MoPubAdAdapter and then set the adapter on the ListView.
         mAdAdapter.registerAdRenderer(videoAdRenderer);

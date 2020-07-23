@@ -12,8 +12,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
+
+import android.util.Log;
 import android.webkit.WebView;
 
+import com.flurry.android.FlurryAgent;
 import com.mopub.common.MoPub;
 import com.mopub.common.SdkConfiguration;
 import com.mopub.common.SdkInitializationListener;
@@ -22,6 +25,7 @@ import com.mopub.common.privacy.ConsentStatus;
 import com.mopub.common.privacy.ConsentStatusChangeListener;
 import com.mopub.common.privacy.PersonalInfoManager;
 import com.mopub.common.util.DeviceUtils;
+import com.mopub.mobileads.FlurryAgentWrapper;
 import com.mopub.mobileads.MoPubErrorCode;
 import com.mopub.mobileads.testing.BuildConfig;
 
@@ -87,6 +91,16 @@ public class MoPubSampleActivity extends FragmentActivity {
         if (savedInstanceState == null) {
             createMoPubListFragment(getIntent());
         }
+
+//        INIT FLURRY
+        FlurryAgent.Builder flurryAgentBuilder = new FlurryAgent.Builder()
+            .withLogEnabled(true)
+            .withLogLevel(Log.VERBOSE);
+
+        flurryAgentBuilder.build(this, "WRKZW8K465CHST6YQKZV"); // flurryTestApp
+//        flurryAgentBuilder.build(this, "69M3SS4J87H2FPBKQ985"); // hunter
+
+//        flurryAgent
 
         final SdkConfiguration.Builder configBuilder = new SdkConfiguration.Builder("b195f8dd8ded45fe847ad89ed1d016da");
         if (BuildConfig.DEBUG) {

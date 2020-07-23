@@ -24,9 +24,11 @@ public final class FlurryAgentWrapper {
     }
 
     private FlurryAgentWrapper() {
+        Log.d("################", "TeST");
+
         mAgentBuilder = new FlurryAgent.Builder()
-                .withLogEnabled(false)
-                .withLogLevel(Log.INFO);
+                .withLogEnabled(true)
+                .withLogLevel(Log.VERBOSE);
 
         FlurryAgent.addOrigin(ORIGIN_IDENTIFIER, ORIGIN_VERSION);
     }

@@ -26,7 +26,10 @@
     <string name="ad_unit_id_interstitial">24534e1901884e398f1253216226017e</string>
     <string name="ad_unit_id_rewarded_video">920b6145fb1546cf8b5cf2ac34638bb7</string>
     <string name="ad_unit_id_rewarded_rich_media">a96ae2ef41d44822af45c6328c4e1eb1</string>
-    <string name="ad_unit_id_native">11a17b188668469fb0412708c3d16813</string>
+<!--    <string name="ad_unit_id_native">11a17b188668469fb0412708c3d16813</string> &lt;!&ndash; original - mopub sample &ndash;&gt;-->
+<!--    <string name="ad_unit_id_native">b6ea48927a3f4eabae36f4d5909e7a3e</string> &lt;!&ndash; VAS &ndash;&gt;-->
+<!--    <string name="ad_unit_id_native">6fce18c89a3743d99043255916c2b2ab</string>  &lt;!&ndash; hunter - flurry &ndash;&gt;-->
+    <string name="ad_unit_id_native">3776fa806d9f4e7788c4ec6997fdab1f</string>  <!-- my custom - flurry -->
     <string name="swipe_text"><![CDATA[< Swipe Left & Right >]]></string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
